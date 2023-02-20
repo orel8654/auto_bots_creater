@@ -1,3 +1,3 @@
 """
-NEW PROJECT
+NEW PROJECT 1.0
 """

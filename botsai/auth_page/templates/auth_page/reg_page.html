@@ -1,8 +1,12 @@
 {% extends 'base/_base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'auth_page/css/reg_page.css' %}">
+{% endblock %}
 {% block title %}Регистрация{% endblock %}
 {% block forms %}
-    <form method="post"> {% csrf_token %}
+    <form method="post" class="form-reg-all"> {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Регистрация">
+        <input class="form-reg-button" type="submit" value="Регистрация">
     </form>
 {% endblock %}

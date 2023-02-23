@@ -20,6 +20,9 @@ INSTALLED_APPS = [
     'general_page',
     'general_rest_api',
     'rest_framework',
+    'payment',
+    'editor',
+    'user_settings',
 ]
 
 MIDDLEWARE = [
@@ -31,6 +34,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_referrer_policy.middleware.ReferrerPolicyMiddleware',
 ]
 
 ROOT_URLCONF = 'botsai.urls'
@@ -58,8 +62,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'DISABLE_SERVER_SIDE_CURSORS': False,
         'NAME': 'auto_bots_creater',
-        'USER': 'orel8654',
-        'PASSWORD': 'orel8654',
+        'USER': os.getenv('PSQL_USER'),
+        'PASSWORD': os.getenv('PSQL_PASSWORD'),
         'HOST': 'localhost',
         'PORT': 5432,
     }
@@ -86,6 +90,8 @@ REST_FRAMEWORK = {
     ]
 }
 
+REFERRER_POLICY = 'no-referrer'
+
 LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
@@ -99,3 +105,4 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+QIWI_PUB_KEY = os.getenv('QIWI_SECRET')

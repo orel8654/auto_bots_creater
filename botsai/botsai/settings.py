@@ -34,7 +34,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_referrer_policy.middleware.ReferrerPolicyMiddleware',
 ]
 
 ROOT_URLCONF = 'botsai.urls'
@@ -62,8 +61,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'DISABLE_SERVER_SIDE_CURSORS': False,
         'NAME': 'auto_bots_creater',
-        'USER': os.getenv('PSQL_USER'),
-        'PASSWORD': os.getenv('PSQL_PASSWORD'),
+        'USER': 'orel8654',
+        'PASSWORD': 'orel8654',
         'HOST': 'localhost',
         'PORT': 5432,
     }

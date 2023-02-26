@@ -18,3 +18,11 @@ class TelegramBots(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+class TelegramBotTemplates(models.Model):
+    telegram_bot_id = models.ForeignKey(TelegramBots, on_delete=models.CASCADE, verbose_name='Принадлежащий боту')
+    welcome_msg = models.CharField(max_length=255, blank=True, null=True, verbose_name='Привественное сообщение')
+    configuration = models.JSONField(blank=True, null=True, verbose_name='Конфигурация')
+
+    def __str__(self):
+        return str(self.telegram_bot_id)

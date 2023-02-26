@@ -1,4 +1,4 @@
-from django.views.generic import View, FormView
+from django.views.generic import TemplateView, FormView
 from .forms import TemplatesForm
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
@@ -17,5 +17,5 @@ class Editor(FormView):
         data['owner'] = owner
         TelegramBots.objects.create(**data)
         return HttpResponseRedirect(self.success_url)
-class CreaterTemplateTelegramBot(View):
-    pass
+class CreaterTemplateTelegramBot(TemplateView):
+    template_name = 'editor/editor_configuration.html'
